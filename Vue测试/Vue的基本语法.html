@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="main">
+<input type="text" id="inp" v-model="con">    <!--v-model表示变量的双向绑定-->
+<div id="div">{{ con }}</div>  <!--{{ }} 绑定元素内容,只能写在元素的内容区域,不能写在属性区域-->
+    <!--<a href="{{ url }}">{{ name }}</a>-->
+    <!--<a v-bind:href="url">{{ name }}</a>    &lt;!&ndash;绑定元素属性内容&ndash;&gt;-->
+    <a :href="url">{{ name }}</a>    <!--绑定元素属性内容-->
+
+    <br>
+    <!--<button v-on:click="handle">按钮</button>    v-on: 绑定事件 handle:方法名称-->
+    <!--<button @click="handle">按钮</button>-->
+    <!--<button @click="count+=1">按钮</button>-->
+    <p>计数器:{{ count }}</p>
+</div>
+<script>
+window.onload = function () {  //window.onload 等待页面全部加载完成之后再执行代码
+    var vm = new Vue({
+        //el代表和文档的哪一块内容是交互
+        el: '#main',
+        // data里面是定义要渲染的变量的值
+        data: {
+            con: '',
+            name:'baidu',
+            url:'https://www.baidu.com',
+            count:0
+        },
+        //存放操作方法，为某个元素绑定一个操作方法
+        methods:{
+            handle:function () {
+                this.count += 1
+            }
+        }
+    })
+}
+</script>
+
+<script src="vue-2.5.16.js"></script>
+
+</body>
+</html>
+

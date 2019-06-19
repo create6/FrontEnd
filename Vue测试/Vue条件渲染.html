@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue-2.5.16.js"></script>
+</head>
+<body>
+<div id="main">
+    <p v-if="score<=100 && score>80">你的成绩为A，好好保持^_^</p>
+    <p v-else-if="score<=80 && score>60">你的成绩为B，在加一点油@~@</p>
+    <p v-else-if="score<=60 && score>40">你的成绩为C，要好好加油- -</p>
+    <p v-else-if="score<=40 && score>20">你的成绩为D，别玩了！要好好学习！</p>
+    <p v-else>没救了回去种田吧QAQ</p>
+
+    <p v-show="hide">显示,隐藏</p>    <!--当hide为true时内容显示,为false时内容隐藏-->
+</div>
+
+
+<script>
+    window.onload = function () {
+        var vm = new Vue({
+            el:'#main',
+            data:{
+                score: 50,
+                hide: true
+            }
+        })
+    }
+</script>
+</body>
+</html>

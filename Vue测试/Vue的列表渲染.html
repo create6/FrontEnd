@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue-2.5.16.js"></script>
+</head>
+<body>
+<div id="main">
+    <!--普通列表-->
+    <ul>
+        <li v-for="a in user">{{ a }}</li>
+    </ul>
+
+    <!--列表下标-->
+    <ul>
+        <li v-for="a,b in user">{{ b }}--{{ a }}</li>
+    </ul>
+
+    <!--一个对象-->
+    <ul>
+        <li v-for="a,b in userdict">{{ b }}--{{ a }}</li>
+    </ul>
+
+    <!--列表对象-->
+    <ul>
+        <li v-for="a,b in userlist">{{ b }}--{{ a.姓名 }}--{{ a.年龄 }}</li>
+    </ul>
+</div>
+
+
+<script>
+    window.onload = function () {
+        var vm = new Vue({
+            el:'#main',
+            data:{
+                user:['张','大','炮'],
+                userdict:{'姓名':'张大炮','年龄':'28'},
+                userlist:[
+                    {'姓名':'张大炮','年龄':'28'},
+                    {'姓名':'隔壁老王','年龄':'30'}
+                ]
+            }
+        })
+    }
+</script>
+
+</body>
+</html>
