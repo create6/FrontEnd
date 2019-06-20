@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全局局部组件嵌套</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+    <global_component></global_component>
+</div>
+
+<script>
+    //1,定义局部组件
+    var part_component={
+        // template:"<h1>大头鬼</h1>"
+        template:"<div>大头鬼</div>"
+    };
+    var part_com={
+      template:"<div>天外飞仙</div>"
+    };
+    //2,定义全局组件
+    Vue.component(
+        'global_component',
+        {
+            template: "<div>小头儿子<part_component></part_component><part_com></part_com></div>",
+            components: {part_component,part_com}
+        }
+
+    )
+    //3,参数vue对象
+    new Vue({
+        el:"#app",
+    })
+
+
+
+</script>
+
+
+</body>
+</html>
